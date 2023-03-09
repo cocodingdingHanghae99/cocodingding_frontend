@@ -1,18 +1,18 @@
 //Kakao.js
 //카카로 로그인 대기중. 화면...
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { useNavigate } from 'react-router-dom';
 // import { __kakaologin } from '../../redux/modules/LoginSlice';
-import { __kakaoLogin } from "../../redux/modules/LoginSlice";
+import { __kakaoLogin } from '../../redux/modules/LoginSlice';
 const Kakao = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loginCheck = useSelector((state) => state.kakaoList.isLogin);
 
   // new URL 객체에서 searchParams객체의 get메소드를 사용하여 'code'키의 값을 추출
-  let code = new URL(window.location.href).searchParams.get("code");
+  let code = new URL(window.location.href).searchParams.get('code');
 
   //FIXME: 두번째 방법 code?값 보내기..
   // const code = new URL(window.location.href).search;
@@ -26,33 +26,8 @@ const Kakao = (props) => {
   });
 
   useEffect(() => {
-    loginCheck && navigate("/");
+    loginCheck && navigate('/');
   }, [loginCheck, navigate]);
-  // useEffect(() => {
-  //   const sendCodeToSever = async () => {
-  //     try {
-  //       console.log(code);
-  //       const response = await axios
-  //         .post('https://cocodingding.shop/user/kakao', { code })
-  //         .then((res) => {
-  //           console.log(res);
-  //           localStorage.setItem(
-  //             'Authorization',
-  //             res.headers.get('Authorization')
-  //           );
-  //           console.log(res);
-  //           const nickname = res.data.nickname;
-  //           console.log(nickname);
-  //           localStorage.setItem('nickname', nickname);
-  //         });
-  //       navigate(`/`);
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-  //   sendCodeToSever();
-  // }, []);
 
   return (
     <div>

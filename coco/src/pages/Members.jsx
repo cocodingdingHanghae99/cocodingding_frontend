@@ -1,7 +1,7 @@
-import React from "react";
-import { useNavigate, Link } from "react-router-dom";
-import styled from "styled-components";
-import Layout from "../components/Layout/Layout";
+import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import styled from 'styled-components';
+import Layout from '../components/Layout/Layout';
 
 export default function Members() {
   const navigate = useNavigate();
@@ -18,14 +18,14 @@ export default function Members() {
       </StMembers>
       <StNotion>
         <a
-          href="https://simple-ixia-f79.notion.site/99-_-a26aba0c26cf479aa67507282b362c41"
-          target="_blank"
+          href='https://simple-ixia-f79.notion.site/99-_-a26aba0c26cf479aa67507282b362c41'
+          target='_blank'
         >
           팀 노션
         </a>
       </StNotion>
       <StGit>
-        <a href="https://github.com/cocodingdingHanghae99" target="_blank">
+        <a href='https://github.com/cocodingdingHanghae99' target='_blank'>
           github repo
         </a>
       </StGit>
@@ -58,7 +58,7 @@ const StMembers = styled.div`
   margin-bottom: 40px;
 
   & > div {
-    width: 300px;
+    width: 350px;
     display: flex;
     gap: 13px;
     flex-direction: column;
