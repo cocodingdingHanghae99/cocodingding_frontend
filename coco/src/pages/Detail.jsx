@@ -95,6 +95,15 @@ export default function Detail() {
   //   reload();
   // };
 
+  const deleteSubscriber = (streamManager) => {
+    let index = subscribers.indexOf(streamManager, 0);
+    if (index > -1) {
+      subscribers.splice(index, 1);
+      setSubscribers(subscribers);
+    }
+    subscribers.length === 0 && setSubscribers([]);
+  };
+
   const leaveSession = () => {
     setSubscribers([]);
     setOV(undefined);
@@ -114,6 +123,10 @@ export default function Detail() {
       const newSubscriber = newsession.subscribe(e.stream, undefined);
       setSubscribers(() => [...subscribers, newSubscriber]);
       setIsConnect(true);
+    });
+
+    newsession.on("streamDestroyed", (event) => {
+      deleteSubscriber(event.stream.streamManager);
     });
 
     newsession.on("exception", (exception) => {});
