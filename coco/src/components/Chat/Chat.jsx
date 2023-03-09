@@ -202,12 +202,14 @@ const StChatBox = styled.div`
 `;
 
 const StSendBox = styled.div`
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 `;
 
 const StReceiveBox = styled.div`
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
 `;
@@ -259,9 +261,9 @@ const Footer = styled.div`
   /* background-color: gray; */
   position: relative;
   input {
-    width: 360px;
+    flex-grow: 1;
     height: 70px;
-    margin: 0px 20px 0px 20px;
+    margin: 0px 20px;
     border-radius: 30px;
     outline: none;
     border: 1px solid #e3e3e3;
@@ -269,22 +271,22 @@ const Footer = styled.div`
   button {
     width: 55px;
     height: 55px;
-    position: absolute;
     line-height: 40px;
+    position: absolute;
     right: 25px;
     border-radius: 50%;
     color: #777777;
     background-color: #ffe45c;
-
     font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     border: 0 solid black;
+    bottom: calc(50% - 27.5px); // input 창 높이의 절반만큼 위로 이동
 
     :hover {
-      background-color: #c6ddff;
+      background-color: #3d8afd;
       color: white;
       transition: 0.1s ease;
     }
