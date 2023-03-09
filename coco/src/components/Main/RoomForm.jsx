@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
-import { __getRoom } from "../../redux/modules/roomSlice";
-import { __postVideoToken } from "../../redux/modules/roomSlice";
-import CreateRoomButton from "./CreateRoomButton";
-import Card from "./Card";
-import { BsBroadcast } from "react-icons/bs";
-import { MdOutlinePeople } from "react-icons/md";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { __getRoom } from '../../redux/modules/roomSlice';
+import { __postVideoToken } from '../../redux/modules/roomSlice';
+import CreateRoomButton from './CreateRoomButton';
+import Card from './Card';
+import { BsBroadcast } from 'react-icons/bs';
+import { MdOutlinePeople } from 'react-icons/md';
 
 // RoomForm 컴포넌트에서 rooms state 및 rooms 데이터 가져오는 기능 구현
 export default function RoomForm({ rooms, search, category }) {
@@ -33,14 +33,14 @@ export default function RoomForm({ rooms, search, category }) {
     .filter((room) => (category ? room.category === category : true));
 
   //로그인여부
-  const isLoggedIn = !!localStorage.getItem("Authorization");
+  const isLoggedIn = !!localStorage.getItem('Authorization');
 
   const handleMoreBtn = () => {
     if (code === 200) {
       setPageNum(pageNum + 1);
       dispatch(__getRoom(pageNum));
     } else {
-      alert("불러올 페이지가 없습니다.");
+      alert('불러올 페이지가 없습니다.');
     }
   };
 
@@ -74,7 +74,7 @@ export default function RoomForm({ rooms, search, category }) {
         </StRooms>
         <StMoreBtn>
           {filteredRooms.length % 6 === 0 && filteredRooms.length !== 0 ? (
-            <button type="button" onClick={handleMoreBtn}>
+            <button type='button' onClick={handleMoreBtn}>
               + 더보기
             </button>
           ) : null}
@@ -106,8 +106,9 @@ const StCreateRooms = styled.div`
 `;
 
 const StRoomNone = styled.div`
-  width: 100%;
-  height: 324px;
+  margin-top: 30px;
+  width: 100vw;
+  height: 380px;
   background-color: #ececec;
   display: flex;
   flex-direction: column;
