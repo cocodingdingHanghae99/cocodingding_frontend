@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { client } from "../config/axiosInstance";
 
 /* Action Type */
 export const actionType = {
@@ -17,9 +19,6 @@ export const actionType = {
 
 const token = `${localStorage.getItem("Authorization")}`;
 const nickname = `${localStorage.getItem("userNickname")}`;
-
-// const token =
-//   "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhYWFAbmF2ZXIuY29tIiwiZXhwIjoxNjc2NzA1NTU5LCJpYXQiOjE2NzY3MDM3NTl9.hJjLiaBsOTFQ_eykdGwtnjnBuUHS3es5JV3yoOcH9ykKsiuEMJq3ZacZwH2grsikz4ajfooLIep0fiscxzya4w";
 
 //detail/room으로 변경하기
 
@@ -42,6 +41,7 @@ export const __createRoom = createAsyncThunk(
         },
         { withCredentials: true }
       );
+
       return thunkAPI.fulfillWithValue(result.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -120,8 +120,9 @@ export const __postVideoToken = createAsyncThunk(
   actionType.room.POST_VIDEO_TOKEN,
   async (payload, thunkAPI) => {
     try {
-      const result = await axios.post(
-        `https://cocodingding.shop/detail/room/${payload}`,
+      const result = await client.post(
+        process.env.REACT_APP_BASE_URL + `/detail/room/${payload}`,
+        // `https://cocodingding.shop/detail/room/${payload}`,
         { password: "" },
         {
           headers: {
@@ -131,6 +132,7 @@ export const __postVideoToken = createAsyncThunk(
         },
         { withCredentials: true }
       );
+
       return thunkAPI.fulfillWithValue(result.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -190,6 +192,7 @@ const initialState = {
   rooms: [],
   roomInfo: [],
   roomNicknames: [],
+  roomId: null,
   error: null,
   isSuccess: false,
   isLoading: false,
@@ -211,6 +214,8 @@ const roomSlice = createSlice({
       .addCase(__createRoom.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
+        state.roomId = action.payload.openviduRoomId;
+        state.roomInfo = action.payload;
         // state.roomInfo = action.payload;
         // state.roomInfo = action.payload;
         // window.location.reload();
@@ -274,7 +279,7 @@ const roomSlice = createSlice({
       .addCase(__postExitRoom.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        // window.location.reload();
+        window.location.reload();
       })
       .addCase(__postExitRoom.rejected, (state, action) => {
         state.isSuccess = false;
