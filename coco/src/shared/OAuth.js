@@ -5,7 +5,7 @@ REST_API_KEY 는 다를수 있어도 REDIRECT URI만큼은 백앤드와 프론�
 */
 
 //지석
-const CLIENT_ID = "306c476f21776ce73e2df07d1ca45995";
+const CLIENT_ID = '306c476f21776ce73e2df07d1ca45995';
 //재광.
 // const CLIENT_ID = 'dca78b23ee6bbb566b637457b88b9de0';
 //현우
@@ -13,7 +13,7 @@ const CLIENT_ID = "306c476f21776ce73e2df07d1ca45995";
 // ---------------------
 //지석
 // const REDIRECT_URI = 'http://localhost:3000/user/kakao';
-const REDIRECT_URI = "https://cocodingdings.vercel.app";
+const REDIRECT_URI = 'https://cocodingdings.vercel.app/user/kakao';
 
 // const REDIRECT_URI = 'https://coco-test-kappa.vercel.app/user/kakao';
 
