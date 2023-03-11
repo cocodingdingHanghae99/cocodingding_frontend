@@ -113,6 +113,7 @@ export default function Detail() {
     setKeyToken(null);
     dispatch(__postExitRoom(roomData.openviduRoomId));
     navigate(`/`);
+    window.location.reload();
   };
 
   const joinSession = () => {
