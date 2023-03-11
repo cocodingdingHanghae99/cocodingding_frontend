@@ -30,7 +30,7 @@ export const __kakaoLogin = createAsyncThunk(
         .get(`https://cocodingding.shop/user/kakao?code=${code}`)
 
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           // const accessToken = res.headers.authorization;
           // localStorage.setItem('Authorization', accessToken);
 
@@ -39,9 +39,9 @@ export const __kakaoLogin = createAsyncThunk(
             res.headers.get('Authorization')
           );
 
-          console.log('로그인정보', res);
+          // console.log('로그인정보', res);
           const userNickname = res.data.userNickname;
-          console.log(userNickname);
+          // console.log(userNickname);
           localStorage.setItem('userNickname', userNickname);
 
           return res;
