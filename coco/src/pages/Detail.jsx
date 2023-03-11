@@ -28,10 +28,12 @@ export default function Detail() {
 
   //openVidu
   const [session, setSession] = useState(undefined);
-  const [OV, setOV] = useState();
-  const [mainStreamManager, setMainStreamManager] = useState(undefined);
-  const [publisher, setPublisher] = useState(null);
   const [subscribers, setSubscribers] = useState([]);
+  const [publisher, setPublisher] = useState(null);
+  const [mainStreamManager, setMainStreamManager] = useState(undefined);
+  const [currentVideoDevice, setCurrentVideoDevice] = useState(null);
+  const [publisherConnectionId, setPublisherConnectionId] = useState(undefined);
+  const [OV, setOV] = useState();
   const [isConnect, setIsConnect] = useState(false);
 
   ////////////////////////////////////////////////////////////////////
@@ -41,7 +43,6 @@ export default function Detail() {
   const [roomTitle, setRoomTitle] = useState(null);
   const [keyToken, setKeyToken] = useState(null);
   const [sessionId, setSessionId] = useState(null);
-  const [currentVideoDevice, setCurrentVideoDevice] = useState(null);
   const [nicknames, setNickNames] = useState(null);
   const [videoOnOff, setVideoOnOff] = useState(true);
   const [nowSubscriber, setNowSubscriber] = useState(null);
@@ -160,11 +161,11 @@ export default function Detail() {
             });
 
             // Obtain the current video device in use
-            let devices = newOV.getDevices();
-            let videoDevices = devices.filter(
+            const devices = newOV.getDevices();
+            const videoDevices = devices.filter(
               (device) => device.kind === "videoinput"
             );
-            let currentVideoDeviceId = publisher.stream
+            const currentVideoDeviceId = publisher.stream
               .getMediaStream()
               .getVideoTracks()[0]
               .getSettings().deviceId;
@@ -173,8 +174,10 @@ export default function Detail() {
             );
 
             // Set the main video in the page to display our webcam and store our Publisher
+            setCurrentVideoDevice(currentVideoDevice);
+            setPublisher(publisher);
             setMainStreamManager(publisher);
-            // setPublisher = publisher;
+            setPublisherConnectionId(publisher.stream.connection.connectionId);
           });
       })
       .catch((error) => {
