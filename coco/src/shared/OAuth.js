@@ -15,6 +15,8 @@ const CLIENT_ID = '306c476f21776ce73e2df07d1ca45995';
 // const REDIRECT_URI = 'http://localhost:3000/user/kakao';
 const REDIRECT_URI = 'https://cocodingdings.vercel.app/user/kakao';
 
+// const REDIRECT_URI = 'https://coco-test-kappa.vercel.app/user/kakao';
+
 //재광
 // const REDIRECT_URI = 'http://cocodingding.shop/user/kakao';
 //현우
