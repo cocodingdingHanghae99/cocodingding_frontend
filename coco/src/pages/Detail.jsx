@@ -1,24 +1,24 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import axios from "axios";
-import { useNavigate, useParams, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { OpenVidu } from "openvidu-browser";
-import ReactPlayer from "react-player";
-import styled from "styled-components";
-import Layout from "../components/Layout/Layout";
-import TopbarDetail from "../components/Topbar/TopbarDetail";
-import VideoRecord from "../components/VideoRecord/VideoRecord";
-import Chat from "../components/Chat/Chat";
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import axios from 'axios';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { OpenVidu } from 'openvidu-browser';
+import ReactPlayer from 'react-player';
+import styled from 'styled-components';
+import Layout from '../components/Layout/Layout';
+import TopbarDetail from '../components/Topbar/TopbarDetail';
+import VideoRecord from '../components/VideoRecord/VideoRecord';
+import Chat from '../components/Chat/Chat';
 import {
   __postVideoToken,
   __postExitRoom,
   __getRoomNickname,
   __getRoom,
-} from "../redux/modules/roomSlice";
-import { BsMicFill } from "react-icons/bs";
-import { BsMicMuteFill } from "react-icons/bs";
-import { BsCameraVideo } from "react-icons/bs";
-import { BsCameraVideoOff } from "react-icons/bs";
+} from '../redux/modules/roomSlice';
+import { BsMicFill } from 'react-icons/bs';
+import { BsMicMuteFill } from 'react-icons/bs';
+import { BsCameraVideo } from 'react-icons/bs';
+import { BsCameraVideoOff } from 'react-icons/bs';
 
 export default function Detail() {
   const location = useLocation();
@@ -37,7 +37,7 @@ export default function Detail() {
   const [isConnect, setIsConnect] = useState(false);
 
   ////////////////////////////////////////////////////////////////////
-  const nickname = localStorage.getItem("nickname");
+  const nickname = localStorage.getItem('nickname');
   const roomData = useSelector((state) => state.room.roomInfo);
   const { roomNicknames } = useSelector((state) => state.room);
   const [roomTitle, setRoomTitle] = useState(null);
@@ -50,8 +50,8 @@ export default function Detail() {
   //리프레시토큰//
   const reIssue = async () => {
     try {
-      const refreshToken = localStorage.getItem("Refresh");
-      const userEmail = localStorage.getItem("userEmail");
+      const refreshToken = localStorage.getItem('Refresh');
+      const userEmail = localStorage.getItem('userEmail');
 
       const data = {
         headers: { Refresh: `${refreshToken}` },
@@ -59,13 +59,13 @@ export default function Detail() {
       };
 
       const repo = await axios.post(
-        "https://cocodingding.shop/user/refresh",
+        'https://cocodingding.shop/user/refresh',
         null,
         data
       );
 
-      localStorage.setItem("Authorization", repo.headers.authorization);
-      localStorage.setItem("Refresh", repo.headers.refresh);
+      localStorage.setItem('Authorization', repo.headers.authorization);
+      localStorage.setItem('Refresh', repo.headers.refresh);
     } catch (error) {
       console.error(error);
     }
@@ -73,7 +73,7 @@ export default function Detail() {
 
   setInterval(() => {
     reIssue();
-  }, 30000 * 10);
+  }, 10000 * 10);
 
   // get한 데이터가 들어왔을 때 useState로 관리
   useEffect(() => {
@@ -121,17 +121,17 @@ export default function Detail() {
     const newsession = newOV.initSession();
     setSession(newsession);
     setOV(newOV);
-    newsession.on("streamCreated", (e) => {
+    newsession.on('streamCreated', (e) => {
       const newSubscriber = newsession.subscribe(e.stream, undefined);
       setSubscribers(() => [...subscribers, newSubscriber]);
       setIsConnect(true);
     });
 
-    newsession.on("streamDestroyed", (event) => {
+    newsession.on('streamDestroyed', (event) => {
       deleteSubscriber(event.stream.streamManager);
     });
 
-    newsession.on("exception", (exception) => {});
+    newsession.on('exception', (exception) => {});
 
     newsession
       .connect(keyToken, { clientData: nickname })
@@ -140,7 +140,7 @@ export default function Detail() {
           .getUserMedia({
             audioSource: false,
             videoSource: undefined,
-            resolution: "380x240",
+            resolution: '380x240',
             frameRate: 10,
           })
           .then((mediaStream) => {
@@ -151,12 +151,12 @@ export default function Detail() {
               videoSource: videoTrack, // The source of video. If undefined default video input
               publishAudio: true, // Whether you want to start the publishing with audio unmuted or muted
               publishVideo: true, // Whether you want to start the publishing with video enabled or disabled
-              resolution: "1280x720", // The resolution of your video
+              resolution: '1280x720', // The resolution of your video
               frameRate: 10, // The frame rate of your video
-              insertMode: "APPEND", // How the video will be inserted according to targetElement
+              insertMode: 'APPEND', // How the video will be inserted according to targetElement
               mirror: true, // Whether to mirror your local video or not
             });
-            newPublisher.once("accessAllowed", () => {
+            newPublisher.once('accessAllowed', () => {
               newsession.publish(newPublisher);
               setPublisher(newPublisher);
             });
@@ -164,7 +164,7 @@ export default function Detail() {
             // Obtain the current video device in use
             const devices = newOV.getDevices();
             const videoDevices = devices.filter(
-              (device) => device.kind === "videoinput"
+              (device) => device.kind === 'videoinput'
             );
             const currentVideoDeviceId = publisher.stream
               .getMediaStream()
@@ -183,7 +183,7 @@ export default function Detail() {
       })
       .catch((error) => {
         console.warn(
-          "There was an error connecting to the session:",
+          'There was an error connecting to the session:',
           error.code,
           error.message
         );
@@ -218,7 +218,7 @@ export default function Detail() {
         <StContainer>
           <StVideoContainer>
             <StVideo>
-              <div className="video-chat">
+              <div className='video-chat'>
                 {session !== undefined ? (
                   <StRoomVideo>
                     {/* 메인스트림매니저가 있을 때 */}
@@ -236,7 +236,7 @@ export default function Detail() {
                     {publisher !== null && (
                       <StSub>
                         <Stbox>
-                          <div className="sub">
+                          <div className='sub'>
                             <VideoRecord
                               streamManager={publisher}
                             ></VideoRecord>
@@ -264,8 +264,8 @@ export default function Detail() {
                 <StPlayerContainer>
                   <ReactPlayer
                     url={roomData.youtubeLink}
-                    width="550px"
-                    height="310px"
+                    width='550px'
+                    height='310px'
                     config={{
                       youtube: {
                         playerVars: {
@@ -299,7 +299,7 @@ export default function Detail() {
             {/* 방id 파람값전달.. */}
             <Chat
               openviduRoomId={openviduRoomId}
-              nickname={localStorage.getItem("userNickname")}
+              nickname={localStorage.getItem('userNickname')}
             />
           </StChatContainer>
         </StContainer>
@@ -409,8 +409,8 @@ const StVideoBtn = styled.button`
   height: 49px;
   border: none;
   border-radius: 10px;
-  background-color: ${({ pubVideo }) => (pubVideo ? "#3d8afd" : "white")};
-  color: ${({ pubVideo }) => (pubVideo ? "white" : "#3d8afd")};
+  background-color: ${({ pubVideo }) => (pubVideo ? '#3d8afd' : 'white')};
+  color: ${({ pubVideo }) => (pubVideo ? 'white' : '#3d8afd')};
   font-size: 24px;
   cursor: pointer;
 `;
@@ -420,8 +420,8 @@ const StMicBtn = styled.button`
   height: 49px;
   border: none;
   border-radius: 10px;
-  background-color: ${({ pubMic }) => (pubMic ? "#3d8afd" : "white")};
-  color: ${({ pubMic }) => (pubMic ? "white" : "#3d8afd")};
+  background-color: ${({ pubMic }) => (pubMic ? '#3d8afd' : 'white')};
+  color: ${({ pubMic }) => (pubMic ? 'white' : '#3d8afd')};
   font-size: 24px;
   cursor: pointer;
 `;
