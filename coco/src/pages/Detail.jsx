@@ -73,7 +73,7 @@ export default function Detail() {
 
   setInterval(() => {
     reIssue();
-  }, 30000 * 10);
+  }, 60000 * 5);
 
   // get한 데이터가 들어왔을 때 useState로 관리
   useEffect(() => {
