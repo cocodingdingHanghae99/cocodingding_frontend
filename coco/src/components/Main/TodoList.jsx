@@ -113,7 +113,7 @@ const StContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: solid 1px gray;
-  border-radius: 15px;
+  border-radius: 20px;
   height: 300px;
 `;
 
