@@ -166,7 +166,7 @@ const StSticker = styled.img`
 
 const StBackground = styled.div`
   background-color: #ffe45c;
-  background-image: url(${process.env.PUBLIC_URL}/img/Frame1.png);
+  background-image: url(${process.env.PUBLIC_URL}/img/Frame0.png);
   background-repeat: no-repeat;
   background-position: center;
 
