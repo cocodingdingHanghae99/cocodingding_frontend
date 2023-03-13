@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+// import backgroundImage from '../public/img/Frame1.png';
 
 //컴포넌트
 
@@ -73,7 +74,7 @@ const Main = () => {
         <>
           <StTopContainer>
             <StBackground>
-              <StSticker src={`${process.env.PUBLIC_URL}/img/f1`}></StSticker>
+              {/* <StSticker src={`${process.env.PUBLIC_URL}/img/f1`}></StSticker> */}
               <StTitle>
                 <StTitleFont>
                   안녕하세요, {localStorage.getItem('userNickname')}님! 오늘도
@@ -113,7 +114,7 @@ const Main = () => {
         <>
           <StTopContainer>
             <StBackground>
-              <StSticker src={`${process.env.PUBLIC_URL}/img/f1`}></StSticker>
+              {/* <StSticker src={`${process.env.PUBLIC_URL}/img/f1`}></StSticker> */}
 
               <StTitle>
                 <StTitleFont>안녕하세요! 오늘도 함께 공부해요</StTitleFont>
@@ -166,6 +167,10 @@ const StSticker = styled.img`
 
 const StBackground = styled.div`
   background-color: #ffe45c;
+  background-image: url(${process.env.PUBLIC_URL}/img/Frame3.png);
+  background-repeat: no-repeat;
+  background-position: center;
+
   width: 100vw;
   display: flex;
   flex-direction: column;
