@@ -1,6 +1,7 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import './App.css';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import "./App.css";
+import "./font/font.css";
 
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
