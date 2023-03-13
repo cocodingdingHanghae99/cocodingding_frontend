@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
+import produce from 'immer';
 
 const todoSlice = createSlice({
   name: 'todos',
   initialState: [],
   reducers: {
     addTodo: (state, action) => {
-      state.push(action.payload);
+      return produce(state, (draftState) => {
+        draftState.push(action.payload);
+      });
     },
     deleteTodo: (state, action) => {
       return state.filter((todo) => todo.id !== action.payload);

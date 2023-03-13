@@ -16,6 +16,7 @@ import TodoList from '../components/Main/TodoList';
 import axios from 'axios';
 import Footer from '../components/Topbar/Footer';
 const Main = () => {
+  // window.location.reload();
   // const rooms = useSelector((state) => state.room.rooms) || [];
   const dispatch = useDispatch();
   //검색기능 프롭스 전달
@@ -72,6 +73,7 @@ const Main = () => {
         <>
           <StTopContainer>
             <StBackground>
+              <StSticker src={`${process.env.PUBLIC_URL}/img/f1`}></StSticker>
               <StTitle>
                 <StTitleFont>
                   안녕하세요, {localStorage.getItem('userNickname')}님! 오늘도
@@ -111,6 +113,8 @@ const Main = () => {
         <>
           <StTopContainer>
             <StBackground>
+              <StSticker src={`${process.env.PUBLIC_URL}/img/f1`}></StSticker>
+
               <StTitle>
                 <StTitleFont>안녕하세요! 오늘도 함께 공부해요</StTitleFont>
               </StTitle>
@@ -153,6 +157,11 @@ export default Main;
 
 const StTopbar = styled.div`
   z-index: 999;
+`;
+
+const StSticker = styled.img`
+  position: absolute;
+  left: 20px;
 `;
 
 const StBackground = styled.div`

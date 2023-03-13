@@ -107,12 +107,16 @@ const Chat = (props) => {
 
   const scrollRef = useRef();
 
-  useEffect(() => {
-    // 메시지 수신 시
-    // 스크롤을 가장 아래로 이동시킨다.
+  // useEffect(() => {
+  //   // 메시지 수신 시
+  //   // 스크롤을 가장 아래로 이동시킨다.
 
+  //   scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  // });
+
+  useEffect(() => {
     scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-  });
+  }, [messages]); // messages가 변경될 때마다 실행되도록 의존성 배열에 추가
 
   return (
     <Container>
@@ -126,16 +130,14 @@ const Chat = (props) => {
                 <div key={chat.id}>
                   <StSendBox>
                     <h4>{chat.sender}</h4>
-                    <SendMessage time={chat.time}>{chat.message}</SendMessage>
+                    <SendMessage>{chat.message}</SendMessage>
                   </StSendBox>
                 </div>
               ) : (
                 <div key={chat.id}>
                   <StReceiveBox>
                     <h4>{chat.sender}</h4>
-                    <ReceivedMessage time={chat.time}>
-                      {chat.message}
-                    </ReceivedMessage>
+                    <ReceivedMessage>{chat.message}</ReceivedMessage>
                   </StReceiveBox>
                 </div>
               )
