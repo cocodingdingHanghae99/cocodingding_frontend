@@ -1,34 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 
 //컴포넌트
 
-import Topbar from '../components/Topbar/Topbar';
-import CreateRoomButton from '../components/Main/CreateRoomButton';
-import RoomForm from '../components/Main/RoomForm';
-import Layout from '../components/Layout/Layout';
-import BottomBar from '../components/BottomBar/BottomBar';
-import __getRoom from '../redux/modules/roomSlice';
-import SearchBar from '../components/Main/SearchBar';
-import WisdomQuote from '../components/Main/WisdomQuote';
-import TodoList from '../components/Main/TodoList';
-import axios from 'axios';
-import Footer from '../components/Topbar/Footer';
+import Topbar from "../components/Topbar/Topbar";
+import CreateRoomButton from "../components/Main/CreateRoomButton";
+import RoomForm from "../components/Main/RoomForm";
+import Layout from "../components/Layout/Layout";
+import BottomBar from "../components/BottomBar/BottomBar";
+import __getRoom from "../redux/modules/roomSlice";
+import SearchBar from "../components/Main/SearchBar";
+import WisdomQuote from "../components/Main/WisdomQuote";
+import TodoList from "../components/Main/TodoList";
+import axios from "axios";
+import Footer from "../components/Topbar/Footer";
 const Main = () => {
   // window.location.reload();
   // const rooms = useSelector((state) => state.room.rooms) || [];
   const dispatch = useDispatch();
   //검색기능 프롭스 전달
-  const [search, setSearch] = useState('');
-  const [category, setCategory] = useState('');
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
   const { rooms } = useSelector((state) => state.room);
 
   //리프레시토큰//
   const reIssue = async () => {
     try {
-      const refreshToken = localStorage.getItem('Refresh');
-      const userEmail = localStorage.getItem('userEmail');
+      const refreshToken = localStorage.getItem("Refresh");
+      const userEmail = localStorage.getItem("userEmail");
 
       const data = {
         headers: { Refresh: `${refreshToken}` },
@@ -36,13 +36,13 @@ const Main = () => {
       };
 
       const repo = await axios.post(
-        'https://cocodingding.shop/user/refresh',
+        "https://cocodingding.shop/user/refresh",
         null,
         data
       );
 
-      localStorage.setItem('Authorization', repo.headers.authorization);
-      localStorage.setItem('Refresh', repo.headers.refresh);
+      localStorage.setItem("Authorization", repo.headers.authorization);
+      localStorage.setItem("Refresh", repo.headers.refresh);
       // console.log(refreshToken);
     } catch (error) {
       console.error(error);
@@ -60,7 +60,7 @@ const Main = () => {
     .filter((room) => (category ? room.category === category : true));
 
   //로그인 여부
-  const isLoggedIn = !!localStorage.getItem('Authorization');
+  const isLoggedIn = !!localStorage.getItem("Authorization");
 
   return (
     <div>
@@ -76,7 +76,7 @@ const Main = () => {
               {/* <StSticker src={`${process.env.PUBLIC_URL}/img/f1`}></StSticker> */}
               <StTitle>
                 <StTitleFont>
-                  안녕하세요, {localStorage.getItem('userNickname')}님! 오늘도
+                  안녕하세요, {localStorage.getItem("userNickname")}님! 오늘도
                   함께 공부해요.
                 </StTitleFont>
               </StTitle>
@@ -193,11 +193,12 @@ const StTitle = styled.div`
   margin-top: 50px;
   display: flex;
   justify-content: center;
-  font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+  font-family: "AppleSDGothicNeo", "Noto Sans KR", sans-serif;
 `;
 
 const StTitleFont = styled.h3`
-  font-size: 30px; ;
+  font-size: 40px;
+  font-family: "bazzi";
 `;
 
 const StMidBoxs = styled.div`
