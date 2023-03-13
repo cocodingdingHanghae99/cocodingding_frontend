@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-// import backgroundImage from '../public/img/Frame1.png';
 
 //컴포넌트
 
@@ -44,7 +43,7 @@ const Main = () => {
 
       localStorage.setItem('Authorization', repo.headers.authorization);
       localStorage.setItem('Refresh', repo.headers.refresh);
-      console.log(refreshToken);
+      // console.log(refreshToken);
     } catch (error) {
       console.error(error);
     }

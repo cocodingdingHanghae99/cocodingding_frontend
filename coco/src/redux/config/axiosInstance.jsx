@@ -26,14 +26,16 @@ client.interceptors.response.use(
   },
   function (error) {
     // Status Code 200범위 밖, 즉 실패했을때
-    console.log("에러", error);
-    console.log("에러에러", error.response.status);
+    // if (error.response.status === 400) {
+    //   window.alert("데이터를 찾을 수 없습니다.");
+    //   window.location.href = "/";
+    // }
     if (error.response.status === 401 || error.response.status === 406) {
       window.alert("다시 로그인이 필요합니다.");
       window.location.href = "/";
     }
     // 세션이 종료되었을 때
-    if (error.response.msg === "활성화된 session이 아닙니다.") {
+    if (error.response.data.msg === "활성화된 session이 아닙니다.") {
       window.alert("세션이 만료되어 방에 입장할 수 없습니다.");
       window.location.href = "/";
     }
