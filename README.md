@@ -25,6 +25,7 @@
 ## 서비스 화면
 - 방 만들기 및 화상 채팅
 <br>
+
 ![움짤1](./coco/public/img/%EC%9B%80%EC%A7%A41.gif)
 
 
@@ -32,6 +33,7 @@
 
 - 실시간 채팅
 <br>
+
 ![움짤2](./coco/public/img/%EC%9B%80%EC%A7%A42.gif)
 
 ## 개발 기간
