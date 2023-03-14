@@ -116,7 +116,7 @@ const StNoTodoMessage = styled.div`
   height: 200px;
 
   /* margin-top: 50px; */
-  position: absolute;
+  /* position: absolute; */
   padding: 0 20px 0 20px;
   display: flex;
   justify-content: center;
@@ -124,7 +124,7 @@ const StNoTodoMessage = styled.div`
   font-size: 40px;
   color: #999;
   border-radius: 20px 20px 0 0;
-  /* background-color: rgba(255, 245, 194, 0.5); */
+  background-color: rgba(255, 245, 194, 0.5);
 `;
 
 const StContainer = styled.div`
