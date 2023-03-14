@@ -55,6 +55,9 @@ const TodoList = memo(() => {
 
   return (
     <StContainer>
+      {memoizedTodos.length === 0 && (
+        <StNoTodoMessage>오늘의 할일을 추가해주세요</StNoTodoMessage>
+      )}
       <StTodoList>
         {memoizedTodos.map((todo) => (
           <StTodoListDescription key={todo.id}>
@@ -97,7 +100,7 @@ const TodoList = memo(() => {
             type='text'
             value={newTodo}
             onChange={(e) => setNewTodo(e.target.value)}
-            placeholder=' 오늘의 할일을 작성해주세요'
+            placeholder='오늘의 할일을 작성해주세요'
           />
           <StTodoAddButton onClick={handleAddTodo}>
             <BsArrowUpCircle />
@@ -107,8 +110,22 @@ const TodoList = memo(() => {
     </StContainer>
   );
 });
-
 export default TodoList;
+
+const StNoTodoMessage = styled.div`
+  height: 200px;
+
+  /* margin-top: 50px; */
+  position: absolute;
+  padding: 0 20px 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #999;
+  border-radius: 20px 20px 0 0;
+  /* background-color: rgba(255, 245, 194, 0.5); */
+`;
 
 const StContainer = styled.div`
   display: flex;
@@ -124,8 +141,9 @@ const StTodoList = styled.div`
   padding: 10px;
   border-radius: 20px 20px 0 0;
 
-  background-color: #fff5c2;
-  opacity: 0.5;
+  /* background-color: #fff5c2; */
+  background-color: rgba(255, 245, 194, 0.5);
+  /* opacity: 0.5; */
 
   ::-webkit-scrollbar {
     width: 0;

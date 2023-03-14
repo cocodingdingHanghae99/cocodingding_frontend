@@ -54,9 +54,7 @@ export default function Topbar() {
             {/* localStorage에 "Authorization"이 존재할때 "마이페이지", 존재하지않을때 "로그인"  */}
             {isLoggedIn ? (
               <>
-                <StMyPage onClick={handleMyPageModalOpen}>
-                  <FaRegUserCircle />
-                </StMyPage>
+                <StButton onClick={handleMyPageModalOpen}>프로필</StButton>
                 <StButton onClick={handleLogout}>로그아웃</StButton>
 
                 {isMyPageModalOpen && (
