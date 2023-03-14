@@ -1,7 +1,7 @@
 # 코코딩딩
 
 원하는 공부를 함께 하는 온라인 화상채팅 스터디 방 만들기 웹사이트 ✨
-![image](./public/img/Frame.png)
+![image](./coco/public/img/Frame.png)
 
 <br>
 <br>
@@ -99,7 +99,7 @@
 
 # 아키텍쳐
 
-![image2](./public/img/architecture.png)
+![image2](./coco/public/img/architecture.png)
 
 # 팀 노션
 
