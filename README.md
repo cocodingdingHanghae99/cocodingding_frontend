@@ -24,12 +24,14 @@
 
 ## 서비스 화면
 - 방 만들기 및 화상 채팅
+<br>
 ![움짤1](./coco/public/img/%EC%9B%80%EC%A7%A41.gif)
 
 
 <br>
 
 - 실시간 채팅
+<br>
 ![움짤2](./coco/public/img/%EC%9B%80%EC%A7%A42.gif)
 
 ## 개발 기간
@@ -56,7 +58,7 @@
 
 # 주요 기능
 
-## 토큰 인증 로그인 및 소셜 로그인<br>
+## 토큰 인증 로그인 및 소셜 로그인
 
 - JWT 토큰 인증 방식으로 로그인 기능 구현
 - 카카오 로그인 구현
@@ -70,13 +72,8 @@
 - webSocket을 이용한 실시간 채팅 기능 구현
 
 <br>
-<br>
 
 # FE 기술 스택
-
-<!-- <img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white">
-<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white">
-<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> -->
 
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
 <img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=Redux&logoColor=black">
