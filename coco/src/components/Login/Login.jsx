@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import axios from "axios";
-import { GrClose } from "react-icons/gr";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import axios from 'axios';
+import { GrClose } from 'react-icons/gr';
 
 //컴포넌트
-import { KAKAO_AUTH_URL } from "../../shared/OAuth";
+import { KAKAO_AUTH_URL } from '../../shared/OAuth';
 
 // window.Kakao.init('2630b13acd7d87daf981d810de94858f');
 export default function Login({ onClose }) {
@@ -13,9 +13,9 @@ export default function Login({ onClose }) {
     onClose();
   };
 
-  const [userEmail, setuserEmail] = useState("");
-  const [userPassword, setuserPassword] = useState("");
-  const [error, setError] = useState("");
+  const [userEmail, setuserEmail] = useState('');
+  const [userPassword, setuserPassword] = useState('');
+  const [error, setError] = useState('');
   // const [cookies, setCookie] = useCookies(["token"]);
   const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ export default function Login({ onClose }) {
 
     // Client-side validation- 둘 중 하나가 공란일 때
     if (!userEmail || !userPassword) {
-      setError("이메일과 패스워드를 모두 입력해주세요!");
+      setError('이메일과 패스워드를 모두 입력해주세요!');
       return;
     }
     try {
@@ -32,7 +32,7 @@ export default function Login({ onClose }) {
 
       await axios
         .post(
-          "https://cocodingding.shop/user/login",
+          'https://cocodingding.shop/user/login',
           {
             userEmail,
             userPassword,
@@ -42,24 +42,24 @@ export default function Login({ onClose }) {
         .then((res) => {
           console.log(res);
           localStorage.setItem(
-            "Authorization",
-            res.headers.get("Authorization")
+            'Authorization',
+            res.headers.get('Authorization')
           );
           // localStorage.setItem('Access', res.headers.get('Access'));
-          localStorage.setItem("Refresh", res.headers.get("Refresh"));
+          localStorage.setItem('Refresh', res.headers.get('Refresh'));
 
-          console.log("로그인정보", res);
+          console.log('로그인정보', res);
           const userNickname = res.data.userNickname;
           console.log(userNickname);
-          localStorage.setItem("userNickname", userNickname);
-          localStorage.setItem("userEmail", userEmail);
+          localStorage.setItem('userNickname', userNickname);
+          localStorage.setItem('userEmail', userEmail);
         });
       navigate(`/`);
       // alert('로그인성공');
       window.location.reload();
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        setError("아이디/비밀번호가 올바르지 않습니다.");
+        setError('아이디/비밀번호가 올바르지 않습니다.');
       }
     }
   }
@@ -75,7 +75,7 @@ export default function Login({ onClose }) {
   return (
     <StContainer>
       <StTopBar>
-        <div></div>
+        <StNone></StNone>
         <h2>로그인 </h2>
         <StCloseButton onClick={closeModal}>
           <GrClose />
@@ -89,23 +89,23 @@ export default function Login({ onClose }) {
             <StInput
               // required
               autoFocus
-              placeholder=" 이메일을 입력해 주세요"
+              placeholder=' 이메일을 입력해 주세요'
               value={userEmail}
               onChange={(event) => setuserEmail(event.target.value)}
             />
             <StInput
               // required
-              type="Password"
-              placeholder=" 비밀번호를 입력해 주세요"
+              type='Password'
+              placeholder=' 비밀번호를 입력해 주세요'
               value={userPassword}
               onChange={(event) => setuserPassword(event.target.value)}
             />
             <div>
-              <span className="error">{error}</span>
+              <span className='error'>{error}</span>
             </div>
             <Stbuttonform>
               <StButton
-                type="submit"
+                type='submit'
                 // onClick={() => {
                 //   navigate(`/`);
                 //   window.location.reload();
@@ -117,7 +117,7 @@ export default function Login({ onClose }) {
               <div>
                 <StButton
                   onClick={() => {
-                    navigate("/SignUp");
+                    navigate('/SignUp');
                   }}
                 >
                   회원가입
@@ -178,6 +178,11 @@ const StTopBar = styled.div`
   align-items: center;
 `;
 
+const StNone = styled.div`
+  /* flex-basis: 33%; */
+  margin-left: 55px;
+`;
+
 const Stform = styled.div`
   width: 80%;
   display: flex;
@@ -187,6 +192,7 @@ const Stform = styled.div`
 `;
 
 const StCloseButton = styled.div`
+  /* flex-basis: 33%; */
   width: 57px;
   height: 44px;
   display: flex;

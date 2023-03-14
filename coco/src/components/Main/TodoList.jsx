@@ -55,9 +55,9 @@ const TodoList = memo(() => {
 
   return (
     <StContainer>
-      {memoizedTodos.length === 0 && (
+      {/* {memoizedTodos.length === 0 && (
         <StNoTodoMessage>오늘의 할일을 추가해주세요</StNoTodoMessage>
-      )}
+      )} */}
       <StTodoList>
         {memoizedTodos.map((todo) => (
           <StTodoListDescription key={todo.id}>
