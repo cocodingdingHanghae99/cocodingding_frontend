@@ -1,8 +1,8 @@
 
 # 프로젝트 소개
 
--   [서비스 확인하러 가기]([https://cocodingdings.vercel.app/](https://cocodingdings.vercel.app/))
--   [팀 노션 주소]([https://www.notion.so/99-_-a26aba0c26cf479aa67507282b362c41?pvs=4](https://www.notion.so/99-_-a26aba0c26cf479aa67507282b362c41?pvs=4))
+-   [코코딩딩 서비스](https://cocodingdings.vercel.app/)
+-   [코코딩딩 팀 노션](https://www.notion.so/99-_-a26aba0c26cf479aa67507282b362c41?pvs=4)
 -   [발표 자료](https://docs.google.com/presentation/d/1lvsxPbOU7NUqNDmwWI6aHbP1O1ZOVq4g-PZD5NGICVM/edit?usp=sharing)
 -   [발표 영상](https://www.youtube.com/watch?v=rjlHIKMyEDw)
 
