@@ -6,6 +6,16 @@
 -   [발표 자료](https://www.canva.com/design/DAFcwdozTV4/HCQVn8mTXPYgxsDkTWEaPg/view?utm_content=DAFcwdozTV4&utm_campaign=share_your_design&utm_medium=link&utm_source=shareyourdesignpanel)
 -   [발표 영상](https://www.youtube.com/watch?v=rjlHIKMyEDw)
 
+## 팀소개
+___FE___
+- _김혜성_
+- _김지석_
+
+___BE___
+- _김재광_
+- _김현우_
+- _왕윤종_
+
 ______________
 
 ## 프로젝트 동기📍
