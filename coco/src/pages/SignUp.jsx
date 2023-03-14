@@ -211,21 +211,21 @@ const StSignupForm = styled.form`
   /* border: 1px solid black; */
   width: 556px;
 
-  padding: 20px;
+  /* padding: 20px; */
   /* gap: 15px;/ */
 `;
 
 const StBox = styled.div`
   width: 556px;
-  height: 141px;
-  margin-top: 10px;
+  height: 110px;
+  /* margin-top: 10px; */
 `;
 
 const StInput = styled.input`
   width: 100%;
-  height: 80px;
+  height: 50px;
   border-radius: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 `;
 
 const Stspan = styled.span`
@@ -237,7 +237,7 @@ const Stbutton = styled.button`
   width: 567px;
   margin-top: 40px;
   border: solid 2px #5cabff;
-  height: 80px;
+  height: 51px;
   color: #5cabff;
   font-weight: 700;
   background-color: white;

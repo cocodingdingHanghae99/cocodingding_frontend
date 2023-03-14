@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { MdRefresh } from "react-icons/md";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { MdRefresh } from 'react-icons/md';
 
 export default function WisdomQuote() {
   //명언기능 한번 테스트해봄.
@@ -51,16 +51,16 @@ export default function WisdomQuote() {
 
 const StContainer = styled.div`
   background-color: #ececec;
-  height: 300px;
+  height: 250px;
   border-radius: 30px;
 `;
 
 const StRefreshButton = styled.div`
   display: flex;
   flex-direction: row-reverse;
+  padding: 15px 15px 0 0;
   font-size: 33px;
   color: gray;
-  padding: 30px;
   background-color: transparent;
   border: none;
   /* border-radius: 5px; */

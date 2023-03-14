@@ -78,7 +78,7 @@ const TodoList = memo(() => {
                 onClick={() =>
                   handleEditTodo(
                     todo.id,
-                    prompt('Enter new todo text', todo.text)
+                    prompt('오늘의 할일 수정 하기', todo.text)
                   )
                 }
               >
@@ -97,6 +97,7 @@ const TodoList = memo(() => {
             type='text'
             value={newTodo}
             onChange={(e) => setNewTodo(e.target.value)}
+            placeholder=' 오늘의 할일을 작성해주세요'
           />
           <StTodoAddButton onClick={handleAddTodo}>
             <BsArrowUpCircle />
@@ -112,15 +113,20 @@ export default TodoList;
 const StContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: solid 1px gray;
+  border: solid 1px #999;
   border-radius: 20px;
-  height: 300px;
+  height: 250px;
 `;
 
 const StTodoList = styled.div`
-  height: 250px;
+  height: 200px;
   overflow-y: scroll;
   padding: 10px;
+  border-radius: 20px 20px 0 0;
+
+  background-color: #fff5c2;
+  opacity: 0.5;
+
   ::-webkit-scrollbar {
     width: 0;
     height: 0;
@@ -132,7 +138,7 @@ const StTodoListDescription = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  color: gray;
+  color: #999;
   padding: 5px 10px 0px 10px;
   margin-top: 10px;
 `;
@@ -142,6 +148,11 @@ const StCheckbox = styled.input`
   height: 24px;
   width: 24px;
   cursor: pointer;
+
+  /* 선택되지 않은 경우 검은색 글자를 표시 */
+  :not(:checked) + span {
+    color: black;
+  }
 
   /* TODO: 이건 체크 박스 동그라미로 만들어주는데  check효과까지 직접 만들어줘야함.. */
   /* border: 1px solid #999;
