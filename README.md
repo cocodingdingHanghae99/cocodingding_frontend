@@ -1,4 +1,4 @@
-# 코코딩딩
+# 📚 코코딩딩
 
 원하는 공부를 함께 하는 온라인 화상채팅 스터디 방 만들기 웹사이트 ✨
 ![image](./coco/public/img/Frame.png)
@@ -6,7 +6,7 @@
 <br>
 <br>
 
-# 서비스 소개
+# 🥸 서비스 소개
 
 ## 프로젝트 동기
 
@@ -36,7 +36,9 @@
 
 ![움짤2](./coco/public/img/%EC%9B%80%EC%A7%A42.gif)
 
-## 개발 기간
+<br>
+
+# 🔧 개발 기간
 
 - 2023.02.02 ~ 2023.03.11
 
@@ -58,7 +60,7 @@
 <br>
 <br>
 
-# 주요 기능
+# 🎁 주요 기능
 
 ## 토큰 인증 로그인 및 소셜 로그인
 
@@ -75,7 +77,7 @@
 
 <br>
 
-# FE 기술 스택
+# 🔥 FE 기술 스택
 
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
 <img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=Redux&logoColor=black">
@@ -96,11 +98,11 @@
 <br>
 <br>
 
-# 아키텍쳐
+# 🗺 아키텍쳐
 
 ![image2](./coco/public/img/architecture.png)
 
-# 팀 노션
+# 🧑🏻‍💻 팀 노션
 
 https://www.notion.so/99-_-a26aba0c26cf479aa67507282b362c41?pvs=4
 
