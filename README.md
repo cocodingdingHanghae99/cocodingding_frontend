@@ -3,7 +3,7 @@
 
 -   [코코딩딩 서비스](https://cocodingdings.vercel.app/)
 -   [코코딩딩 팀 노션](https://www.notion.so/99-_-a26aba0c26cf479aa67507282b362c41?pvs=4)
--   [발표 자료](https://docs.google.com/presentation/d/1lvsxPbOU7NUqNDmwWI6aHbP1O1ZOVq4g-PZD5NGICVM/edit?usp=sharing)
+-   [발표 자료](https://www.canva.com/design/DAFcwdozTV4/HCQVn8mTXPYgxsDkTWEaPg/view?utm_content=DAFcwdozTV4&utm_campaign=share_your_design&utm_medium=link&utm_source=shareyourdesignpanel)
 -   [발표 영상](https://www.youtube.com/watch?v=rjlHIKMyEDw)
 
 ______________
